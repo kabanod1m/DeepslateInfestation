@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "deepslateinfestation",
+  "version": "${version}",
+  "name": "DeepslateInfestation",
+  "description": "A Fabric Minecraft mod that makes it more challenging (and annoying) to mine within deepslate.",
+  "authors": [
+    "kabanod1m"
+  ],
+  "contact": {
+    "website": "winglessbirds.org",
+    "repo": "https://github.com/kabanod1m/DeepslateInfestation"
+  },
+  "license": "MIT",
+  "icon": "assets/deepslateinfestation/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "org.winglessbirds.deepslateinfestation.client.DeepslateInfestationClient"
+    ],
+    "main": [
+      "org.winglessbirds.deepslateinfestation.DeepslateInfestation"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
