@@ -3,7 +3,7 @@
   "id": "deepslateinfestation",
   "version": "${version}",
   "name": "DeepslateInfestation",
-  "description": "A Fabric Minecraft mod that makes it more challenging (and annoying) to mine within deepslate.",
+  "description": "A Fabric Minecraft mod that makes it more challenging (and annoying) to mine within deepslate.\nOptional dependencies:\n* JsonPatcher — to have the new mob included into kill_a_mob and kill_all_mobs advancements",
   "authors": [
     "kabanod1m"
   ],
