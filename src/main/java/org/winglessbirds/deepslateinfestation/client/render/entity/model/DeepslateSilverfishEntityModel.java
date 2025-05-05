@@ -17,7 +17,6 @@ public class DeepslateSilverfishEntityModel<T extends Entity> extends SinglePart
     private final ModelPart[] body = new ModelPart[7];
     private final ModelPart[] scales = new ModelPart[3];
     private static final int[][] SEGMENT_LOCATIONS = new int[][]{{3, 2, 2}, {4, 3, 2}, {6, 4, 3}, {3, 3, 3}, {2, 2, 3}, {2, 1, 2}, {1, 1, 2}};
-    //private static final int[][] SEGMENT_LOCATIONS = new int[][]{{2, 1, 1}, {3, 2, 2}, {4, 3, 2}, {2, 2, 2}, {2, 2, 1}, {2, 1, 2}, {1, 1, 2}};
     private static final int[][] SEGMENT_SIZES = new int[][]{{0, 0}, {0, 4}, {0, 9}, {0, 16}, {0, 22}, {11, 0}, {13, 4}};
 
     public DeepslateSilverfishEntityModel (ModelPart root) {

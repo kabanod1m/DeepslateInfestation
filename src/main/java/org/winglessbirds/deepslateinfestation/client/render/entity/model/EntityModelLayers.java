@@ -2,7 +2,6 @@ package org.winglessbirds.deepslateinfestation.client.render.entity.model;
 
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
-import net.minecraft.client.render.entity.model.SilverfishEntityModel;
 import net.minecraft.util.Identifier;
 import org.winglessbirds.deepslateinfestation.DeepslateInfestation;
 
