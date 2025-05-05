@@ -68,7 +68,7 @@ public class DeepslateInfestedBlock extends Block {
         world.spawnEntity(deepslateSilverfishEntity);
         deepslateSilverfishEntity.playSpawnEffects();
         if (canInfestWithoutSeeingPLayer) {
-            deepslateSilverfishEntity.sawPlayer = true;
+            deepslateSilverfishEntity.setCanInfest(true);
         }
     }
 

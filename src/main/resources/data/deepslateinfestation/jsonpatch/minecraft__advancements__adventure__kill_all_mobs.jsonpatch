@@ -1,0 +1,26 @@
+@version "1";
+@enabled true;
+
+@target "minecraft:advancements/adventure/kill_all_mobs.json";
+
+
+$criteria["deepslateinfestation:deepslate_silverfish"] = {
+    "conditions": {
+        "entity": [
+            {
+                "condition": "minecraft:entity_properties",
+                "entity": "this",
+                "predicate": {
+                    "type": "deepslateinfestation:deepslate_silverfish"
+                }
+            }
+        ]
+    },
+    "trigger": "minecraft:player_killed_entity"
+};
+
+
+arrays.push($requirements, [ "deepslateinfestation:deepslate_silverfish" ]);
+
+
+#debug.throw($); # gets resulting json

@@ -10,6 +10,8 @@ import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtElement;
 import net.minecraft.registry.tag.DamageTypeTags;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
@@ -17,7 +19,6 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec2f;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.*;
 import org.jetbrains.annotations.Nullable;
@@ -40,10 +41,18 @@ public class DeepslateSilverfishEntity extends HostileEntity {
     };
     @Nullable
     private CallForHelpGoal callForHelpGoal;
-    public boolean sawPlayer = false;
+    protected boolean canInfest = false; protected static final String canInfestAName = "CanInfest";
 
     public DeepslateSilverfishEntity (EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
+    }
+
+    public boolean getCanInfest () {
+        return canInfest;
+    }
+
+    public void setCanInfest (boolean setTo) {
+        canInfest = setTo;
     }
 
     @Override
@@ -58,6 +67,20 @@ public class DeepslateSilverfishEntity extends HostileEntity {
         this.targetSelector.add(1, new RevengeGoal(this, new Class[0]).setGroupRevenge(new Class[0]));
         this.targetSelector.add(2, new ActiveTargetGoal<PlayerEntity>((MobEntity)this, PlayerEntity.class, true));
         this.targetSelector.add(3, new ActiveTargetGoal<>((MobEntity)this, HostileEntity.class, 10, true, false, ATTACK_PREDICATE));
+    }
+
+    @Override
+    public void writeCustomDataToNbt(NbtCompound nbt) {
+        super.writeCustomDataToNbt(nbt);
+        nbt.putBoolean(canInfestAName, canInfest);
+    }
+
+    @Override
+    public void readCustomDataFromNbt(NbtCompound nbt) {
+        super.readCustomDataFromNbt(nbt);
+        if (nbt.contains(canInfestAName, NbtElement.NUMBER_TYPE)) {
+            this.canInfest = nbt.getBoolean(canInfestAName);
+        }
     }
 
     @Override
@@ -116,8 +139,8 @@ public class DeepslateSilverfishEntity extends HostileEntity {
     @Override
     public void tick () {
         super.tick();
-        if (!sawPlayer && this.getTarget() instanceof PlayerEntity) {
-            sawPlayer = true;
+        if (!canInfest && this.getTarget() instanceof PlayerEntity) {
+            canInfest = true; // after seeing a player let the silverfish be able to hide into a block (if it survives the encounter)
         }
     }
 
@@ -292,7 +315,7 @@ public class DeepslateSilverfishEntity extends HostileEntity {
         @Override
         public void start () {
             BlockPos blockPos;
-            if ((this.mob instanceof DeepslateSilverfishEntity && !((DeepslateSilverfishEntity)this.mob).sawPlayer) || !this.canInfest) {
+            if ((this.mob instanceof DeepslateSilverfishEntity && !((DeepslateSilverfishEntity)this.mob).canInfest) || !this.canInfest) {
                 super.start();
                 return;
             }

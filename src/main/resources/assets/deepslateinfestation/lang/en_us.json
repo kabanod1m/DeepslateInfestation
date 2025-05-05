@@ -2,5 +2,8 @@
   "block.deepslateinfestation.deepslate_infested_deepslate": "Deepslate Infested Deepslate",
   "block.deepslateinfestation.deepslate_infested_cobbled_deepslate": "Deepslate Infested Cobbled Deepslate",
   "item.deepslateinfestation.deepslate_silverfish_spawn_egg": "Deepslate Silverfish Spawn Egg",
-  "entity.deepslateinfestation.deepslate_silverfish": "Deepslate Silverfish"
+  "entity.deepslateinfestation.deepslate_silverfish": "Deepslate Silverfish",
+  "text.autoconfig.deepslateinfestation.title": "DeepslateInfestation Config",
+  "text.autoconfig.deepslateinfestation.option.spawnLightLevelMax": "Deepslate Silverfish spawn max light",
+  "text.autoconfig.deepslateinfestation.option.yLevelMax": "Deepslate Silverfish spawn max height"
 }

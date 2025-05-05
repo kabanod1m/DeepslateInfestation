@@ -20,6 +20,9 @@
     ],
     "main": [
       "org.winglessbirds.deepslateinfestation.DeepslateInfestation"
+    ],
+    "modmenu": [
+      "org.winglessbirds.deepslateinfestation.config.ModMenuIntegration"
     ]
   },
   "depends": {
