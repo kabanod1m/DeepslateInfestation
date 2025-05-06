@@ -1,4 +1,4 @@
-# ItemPickupPlus
+# DeepslateInfestation
 A Fabric Minecraft mod that makes it more challenging (and annoying) to mine within deepslate.
 
 ### Installation
@@ -11,4 +11,4 @@ The mod can be configured from within the file ".minecraft/config/deepslateinfes
 * Maximum height below which to allow Deepslate Silverfish spawning can be specified (0 by default, meaning allow spawning where deepslate starts generating) 
 
 ### License
-ItemPickupPlus is licensed under MIT.
+DeepslateInfestation is licensed under MIT.
